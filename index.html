@@ -29,10 +29,11 @@
             <h3>Project 1</h3>
             <p>Short description of Project 1.</p>
         </div>
-        <div class="project-item">
+        <div class="project-item" id="3d">
             <h3>Project 2</h3>
             <p>Short description of Project 2.</p>
         </div>
+        
         <!-- Add more projects as needed -->
     </section>
 
@@ -58,5 +59,31 @@
     </section>
 
     <script src="script.js"></script>
+    <script src="https://threejs.org/build/three.js"></script>
+    <script>
+  // Set up the scene, camera, and renderer
+  const scene = new THREE.Scene();
+  const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+  const renderer = new THREE.WebGLRenderer();
+  renderer.setSize(window.innerWidth, window.innerHeight);
+  document.getElementById('3d').appendChild(renderer.domElement);
+  
+  // Load the 3D model
+  const loader = new THREE.GLTFLoader();
+  loader.load('model.glb', (gltf) => {
+    const model = gltf.scene;
+    scene.add(model);
+  });
+  
+  // Set the camera position
+  camera.position.z = 5;
+  
+  // Render the scene
+  const animate = () => {
+    requestAnimationFrame(animate);
+    renderer.render(scene, camera);
+  };
+  animate();
+</script>
 </body>
 </html>
