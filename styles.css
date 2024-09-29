@@ -21,6 +21,9 @@ header {
     background: rgba(0, 0, 0, 0.5);
     color: white;
     padding: 10px 0;
+    animation: 
+    typing 3.5s steps(40, end),
+    blink-caret .75s step-end infinite;
 }
 
 nav ul {
@@ -46,7 +49,9 @@ nav ul li a {
 
 .title {
     font-size: 3em;
-    animation: fadeIn 2s ease-in-out;
+    animation: 
+    typing 3.5s steps(40, end),
+    blink-caret .75s step-end infinite;
 }
 
 .description {
