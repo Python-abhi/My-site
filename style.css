@@ -1,46 +1,95 @@
-body {
-    font-family: Arial, sans-serif;
+body, html {
+    height: 100%;
     margin: 0;
-    padding: 0;
-    line-height: 1.6;
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    background: linear-gradient(45deg, #ff6b6b, #f0e130, #6bffb5);
+    background-size: 400% 400%;
+    animation: gradientAnimation 10s ease infinite;
+}
+
+@keyframes gradientAnimation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
 }
 
 header {
-    background: #333;
-    color: #fff;
-    padding: 20px;
-    text-align: center;
+    position: fixed;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    padding: 10px 0;
 }
 
 nav ul {
+    display: flex;
+    justify-content: center;
     list-style-type: none;
-    padding: 0;
 }
 
 nav ul li {
-    display: inline;
     margin: 0 15px;
 }
 
-nav a {
-    color: #fff;
+nav ul li a {
+    color: white;
     text-decoration: none;
 }
 
-section {
-    padding: 20px;
-    margin: 10px;
-}
-
-.project {
-    border: 1px solid #ccc;
-    padding: 10px;
-    margin: 10px 0;
-}
-
-footer {
+.container, .projects, .skills, .contact {
+    padding: 100px 20px;
     text-align: center;
+    color: white;
+}
+
+.title {
+    font-size: 3em;
+    animation: fadeIn 2s ease-in-out;
+}
+
+.description {
+    font-size: 1.5em;
+    animation: fadeIn 2s ease-in-out 0.5s forwards;
+}
+
+.project-item {
+    margin: 20px 0;
+    animation: slideIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideIn {
+    from { transform: translateY(20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+form input, form textarea {
+    margin: 10px 0;
     padding: 10px;
-    background: #333;
-    color: #fff;
+    width: 300px;
+}
+
+form button {
+    padding: 10px 20px;
+    background: #ff6b6b;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+form button:hover {
+    background: #f0e130;
 }
